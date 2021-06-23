@@ -1,38 +1,38 @@
-package uc4_Wager_Using_Switch_Case;
+package uc5_Calculate_Emp_Wage_For_Month;
 
-import java.util.*;
+import uc4_Wager_Using_Switch_Case.SwitchCase;
 
-import uc3_PartTime_Emp_Wage.PartTime_Wage;
-
-public class SwitchCase extends PartTime_Wage {
+public class Monthly_Wages extends SwitchCase {
 	
 	public static final int isFulltime = 1, isParttime = 2;
 	
-	public static int Switch() {
-		
-		Random randome = new Random();
-		int check = randome.nextInt(3);
-		return check;
-	}
 	public static void main(String[] args) {
 		
-		int check = Switch();
+		int TotalWage = 0;
 		
-		switch (check) {
+		for(int Day = 1; Day <= 20; Day++) {
 		
-		case isFulltime: 					// full time wage
+			int check = Switch();
 			
-			System.out.println("Employee Full day Wager = "+Wager());
-			break;
+			switch (check) {
 			
-		case isParttime:                                                        // part time wage
-		
-			System.out.println("Employee Part time Wager = "+PartTimeWage());
-			break;
-		default:
-			System.out.println("Employee is Absent");               //Absent
+			case isFulltime:   // full time wage
+				
+				TotalWage += Wager();     // Daily wager
+				break;
+				
+			case isParttime:                                                        // part time wage
+			
+				TotalWage += PartTimeWage();
+				break;
+				
+			default:                                                    //Absent
+
+              			TotalWage += 0;
+			}
 		}
-		
+
+		System.out.println(" Employee Monthly wager = "+TotalWage);
 	}
 
 }
