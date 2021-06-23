@@ -1,26 +1,29 @@
-package uc1.Emloyee.Attendance;
-import java.util.*;
-public class Emp_Attendance {
+package uc2_Calculate_Daily_Employee_Wage;
+import uc1_Emloyee_Attendance.Emp_Attendance;
 
-	public static int Attendance() {
+public class Daily_Wage extends Emp_Attendance {
 	
-		Random random = new Random();
-		int check = random.nextInt(2);
-	
-		return check;
+	public static int Wager() {
+		
+		int WagePerHr = 20, FullDayHr = 8;
+		int Daily_wage = WagePerHr * FullDayHr;
+		return Daily_wage;
 	}
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		
-		int check = Attendance();
-		int isPresent = 1, isAbsent = 0;
+		int attendance = Attendance();
 		
-		if( check == isPresent ) {
-			System.out.println("Employee is present");	
+		int isPresent = 1, isAbsent = 0; 
+		
+		if (attendance == isPresent) {
+			
+		System.out.print("Employee Daily wager = "+Wager());
 		}
 		
-		else {	
-			System.out.println("Employee is absent");
-		}	
+		else {
+			
+			System.out.println("Employee Daily Wager = "+isAbsent);
+		}
 	}
 }
